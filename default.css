@@ -1,78 +1,153 @@
-
-/* Box sizing rules */
+/* box-sizing: border-box;を設定 */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Prevent font size inflation */
+/* フォントサイズの拡大を防ぐ */
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  font-size: min(4vw, 16px);
 }
 
-/* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+/* デフォルトのマージン、パディングを削除、作成するCSSの制御を改善するため */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li {
   margin: 0;
   padding: 0;
 }
 
-/* Remove list styles on ul, ol elements */
+/* リストのスタイルを削除 */
 ul,
 ol {
   list-style: none;
 }
 
-/* Set core body defaults */
+/* bodyのデフォルトを設定 */
 body {
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1rem;
 }
 
-/* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+/* 見出しやインタラクティブ要素のline-heightを設定 */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
-/* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
+/* 見出しのテキスト折り返しをbalanceに設定 */
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
-/* A elements that don't have a class get default styles */
+/* classを持たないa要素はデフォルトのスタイルを継承 */
 a:not([class]) {
   text-decoration-skip-ink: auto;
   color: inherit;
 }
 
-/* Make images easier to work with */
+/* 画像の扱いを簡単にする */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-/* Make sure textareas without a rows attribute are not tiny */
+/* rows属性のないtextareasが小さくならないようにする */
 textarea:not([rows]) {
   min-height: 10em;
 }
 
-/* Anything that has been anchored to should have extra scroll margin */
+/* アンカーされている要素には余分なスクロールマージンが必要 */
 :target {
   scroll-margin-block: 5ex;
 }
 
+/* addressのフォントスタイルは継承 */
+address {
+  font-style: inherit;
+}
+
+/* Prevent vertical alignment issues. */
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* table枠線の設定 */
+table {
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+/*　form周りのスタイルリセット　*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none; /* 1 */
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+[type='checkbox'] {
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+[type='radio'] {
+  -webkit-appearance: radio;
+  appearance: radio;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+  cursor: default;
+}
+
+textarea {
+  overflow: auto;
+}
